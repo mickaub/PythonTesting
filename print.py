@@ -12,3 +12,4 @@ if ival > 0 :
     print('Nice')
 else:
     print('Not a number')
+print('\U0001F600')
