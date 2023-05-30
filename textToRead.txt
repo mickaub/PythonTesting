@@ -1,0 +1,5 @@
+This is a text file.
+This was created so that python can read it.
+When a python program reads this, it can count the characters as well as the lines.
+Learning python is a lot easier to me than learning react.
+For me, relearning Javascript syntax is harder than learning a new language, such as python.
