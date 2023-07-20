@@ -7,34 +7,44 @@
 # ANSWER: print(arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]))
 # limit of 5 problems, + and - only, digits only, four digits max for numbers
 #numbers should be right aligned, dashes between each problem
-# TO DO: start from array, max of 5 problems in array
-d = "9999 + 9999"
-e = ""
-f = ""
-g = 0
-h = ""
-for x in d:
-    if x.isnumeric(): #checks if value is numberic
-        if g == 0:
-            e = e + x
-        if g == 1:
-            f = f + x
-    else:
-        if x == "-" or x == "+":
-            h = x    
-            g = 1   
-        if x=="*" or x=="/":
-            f = 10000 # due to g not changing, forces error by making f too large for final if
-l = int(e)
-m = int(f)
-n = 0
-if h == "-":
-    n = l - m
-if h == "+":
-    n = l + m
 
-if h == "" or l>9999 or m>9999:
-    print("error")
-else:
-    print(l,m,n)
-    print(f"{l: >6}\n{h}{m: >5}\n------\n{n: >6}") # > is to the right, ^ is to centre, < is to the left
+def arithmetic_arranger(arr,switch = False): #a default value for argument can be given
+    a = len(arr)
+    if a>5:
+        print("error")
+    else:
+        for x in arr:
+            b = "" #first num
+            c = "" #second num
+            d = 0 #num index
+            e = "" #sign
+            f = x
+            for y in f: #change x to y for simplicity
+                if y.isnumeric(): #checks if value is numberic
+                    if d == 0:
+                        b = b + y
+                    if d == 1:
+                        c = c + y
+                else:
+                    if y == "-" or y == "+":
+                        e = y    
+                        d = 1   
+                    if y == "*" or y == "/":
+                        c = 10000 # due to d not changing, forces error by making c too large for final if
+            l = int(b)
+            m = int(c)
+            n = 0
+            if e == "-":
+                n = l - m
+            if e == "+":
+                n = l + m
+            if e == "" or l>9999 or m>9999:
+                print("error")
+            else:
+                if switch == False:
+                    print(f"{l: >6}\n{e}{m: >5}\n------\n")                
+                else:
+                    print(f"{l: >6}\n{e}{m: >5}\n------\n{n: >6}\n") # > is to the right, ^ is to centre, < is to the left                
+
+arithmetic_arranger(["32 + 8", "1 - 3801", "9999 + 9999", "523 - 49"],True)
+arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"])
