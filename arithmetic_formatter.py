@@ -21,6 +21,7 @@ def arithmetic_arranger(arr,switch = False): #a default value for argument can b
             f = x
             for y in f: #change x to y for simplicity
                 if y.isnumeric(): #checks if value is numberic
+                # if f.index(y) != 0 checks if iteration is 1st or not
                     if d == 0:
                         b = b + y
                     if d == 1:
