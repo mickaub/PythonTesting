@@ -14,3 +14,9 @@ COMPLETE Add day variable and if statements
 COMPLETE Add remd to day variable
 COMPLETE Store AM/PM and add to final print statement
 COMPLETE Convert from 24 hour time back to 12 hour time
+
+24 Jul:
+Published Time Calculator
+
+25 Jul:
+Started planning Budget App
