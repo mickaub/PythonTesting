@@ -13,9 +13,11 @@ withdraw:
 -amount should be stored as negative number
 -if there are not enough funds, nothing should be added to the ledger
 -should return True if withdrawal took place and False otherwise
+
 get_balance:
 -returns the current balance of the budget category based on the deposits
 and withdrawals that have occurred
+
 transfer:
 -accepts amount and another budget category as arguments
 -should add a withdrawal with the amount and description "Transfer to
@@ -24,6 +26,7 @@ transfer:
 "Transfer from (budget category)
 -if there are not enough funds for transfer, nothing should be added to ledger
 -should return True if transfer took place and False otherwise
+
 check_funds:
 -acccepts amount as argument
 -returns False if amount is greater than the balance and returns True otherwise
@@ -49,21 +52,38 @@ class Category:
     def __init__(self,name):
         self.name = name
         self.ledger = []
+        self.balance = 0
 
-    def deposit():
-        pass
+    def deposit(self,amount,description = ""):  
+        self.balance += amount      
+        self.ledger.append({"amount:": amount, "description:": description})
+        for x in self.ledger:
+            print(x)        
 
-    def withdraw():
-        pass
+    def withdraw(self,amount,description = ""):
+        if self.check_funds(amount) == True:
+            self.balance -= amount
+            amount = 0 - amount        
+            self.ledger.append({"amount:": amount, "description:": description})
+            for x in self.ledger:
+                print(x)        
+            return True
+        else:
+            return False
 
-    def get_balance():
-        pass
+    def get_balance(self):
+        print(self.balance)
 
-    def transfer():
-        pass
+    def transfer(self,other):
+        a = other.get_balance() # checks other balance
+        #print(a)
+        return a
 
-    def check_funds():
-        pass
+    def check_funds(self, amount):
+        if self.balance<amount:
+            return False
+        else:
+            return True
     
     def print(self):
         print(self.ledger)
@@ -71,3 +91,23 @@ class Category:
 food = Category("food")
 clothing = Category("clothing")
 entertainment = Category("entertainment")
+#food.deposit(300)
+#food.withdraw(100)
+#food.get_balance()
+clothing.deposit(10)
+food.transfer(clothing)
+
+"""
+EXAMPLE:
+def setUp(self):
+    self.food = budget.Category("Food")
+    self.entertainment = budget.Category("Entertainment")
+    self.business = budget.Category("Business")
+
+def test_deposit(self):
+    self.food.deposit(900, "deposit")
+    actual = self.food.ledger[0]
+    expected = {"amount": 900, "description": "deposit"}
+    self.assertEqual(actual, expected, 'Expected `deposit` method to create a 
+    specific object in the ledger instance variable.')
+"""

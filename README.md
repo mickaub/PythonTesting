@@ -20,3 +20,12 @@ Published Time Calculator
 
 25 Jul:
 Started planning Budget App
+
+Functions:
+Deposit COMPLETE
+Withdraw COMPLETE
+Get Balance COMPLETE
+Transfer
+Check Funds COMPLETE
+Print
+Seperate: Create Spend Chart
