@@ -57,46 +57,69 @@ class Category:
     def deposit(self,amount,description = ""):  
         self.balance += amount      
         self.ledger.append({"amount:": amount, "description:": description})
-        for x in self.ledger:
-            print(x)        
+        #for x in self.ledger:
+        #    print(x)        
 
     def withdraw(self,amount,description = ""):
         if self.check_funds(amount) == True:
             self.balance -= amount
             amount = 0 - amount        
             self.ledger.append({"amount:": amount, "description:": description})
-            for x in self.ledger:
-                print(x)        
+         #   for x in self.ledger:
+         #       print(x)        
             return True
         else:
             return False
 
     def get_balance(self):
-        print(self.balance)
+        return self.balance
 
-    def transfer(self,other):
-        a = other.get_balance() # checks other balance
-        #print(a)
-        return a
-
-    def check_funds(self, amount):
+    def transfer(self,amount,other):
+        if self.check_funds(amount) == True:
+            self.balance -= amount
+            amount = 0 - amount
+            other_name = other.name
+            self.ledger.append({"amount:": amount, "description:": "Transfer to "+other_name})
+        #    print(self.ledger)#temp
+            amount = amount *-1
+            other.balance += amount
+            other.ledger.append({"amount:": amount, "description:": "Transfer from "+self.name})
+         #   print(other.balance)#temp
+        #    print(other.ledger)
+            return True            
+        else:
+            return False            
+    
+    def check_funds(self, amount):        
         if self.balance<amount:
             return False
         else:
             return True
     
     def print(self):
-        print(self.ledger)
+        l = len(self.name)        
+        side1 = 0
+        side2 = 0
+        if l%2==0:
+            side1 = (30 - l)/2
+            side2 = (30 - l)/2
+        else:
+            side1 = ((30 - l)/2)-0.5
+            side2 = ((30 - l)/2)+0.5
+        lside = "*" * int(side1) #multiplies string
+        rside = "*" * int(side2)
+        for x in self.ledger:
+            print(lside+self.name+rside)  
 
 food = Category("food")
 clothing = Category("clothing")
 entertainment = Category("entertainment")
-#food.deposit(300)
+food.deposit(300,"Deposit")
 #food.withdraw(100)
-#food.get_balance()
-clothing.deposit(10)
-food.transfer(clothing)
-
+#print(food.get_balance())
+#clothing.deposit(10)
+food.transfer(100,clothing)
+food.print()
 """
 EXAMPLE:
 def setUp(self):

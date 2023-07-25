@@ -25,7 +25,7 @@ Functions:
 Deposit COMPLETE
 Withdraw COMPLETE
 Get Balance COMPLETE
-Transfer
+Transfer COMPLETE
 Check Funds COMPLETE
 Print
 Seperate: Create Spend Chart
