@@ -33,3 +33,4 @@ Seperate: Create Spend Chart
 26 Jul:
 Print                           COMPLETE
 Seperate: Create Spend Chart    WORKING
+Trying to work on making each column either "o" or not.

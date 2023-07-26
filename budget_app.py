@@ -53,9 +53,11 @@ class Category:
         self.name = name
         self.ledger = []
         self.balance = 0
+        self.transferred = 0
 
     def deposit(self,amount,description = ""):  
-        self.balance += amount      
+        self.balance += amount    
+        self.transferred += amount  
         self.ledger.append({"amount:": amount, "description:": description})
         #for x in self.ledger:
         #    print(x)        
@@ -76,13 +78,15 @@ class Category:
 
     def transfer(self,amount,other):
         if self.check_funds(amount) == True:
-            self.balance -= amount
+            self.balance -= amount            
+            self.transferred -= amount
             amount = 0 - amount
             other_name = other.name
             self.ledger.append({"amount:": amount, "description:": "Transfer to "+other_name})
         #    print(self.ledger)#temp
             amount = amount *-1
             other.balance += amount
+            other.transferred += amount
             other.ledger.append({"amount:": amount, "description:": "Transfer from "+self.name})
          #   print(other.balance)#temp
         #    print(other.ledger)
@@ -125,19 +129,49 @@ class Category:
         print(totstr)
 
 def create_spend_chart(*args):
+    withdrawals = []
+    sum = []
     for x in args:
-        print("Bal",x.balance)
+        print("Bal",x.balance,x.transferred)
+        c = x.transferred - x.balance
+        withdrawals.append(c)
+    total = 0
+    for x in withdrawals:
+        total += x
+    for x in withdrawals:
+        d = (x/total)*10
+        d = int(str(d)[:1])
+        d = 10 - d
+        sum.append(d)
+    for x in sum:
+        amtstr = []
+        if x>0:
+            pass #trying to create array list with o or not
     for x in range(11):
+        point = "o  "
+        for y in sum:
+            if y>5:
+                point += "x  "  
+            y -= 1
+         #   if y>0:
+          #      y -= 1
+          #  else:
+          #      point += "o  "
         a = x * 10
-        b = 100 - a
-        print("{:<3}".format(b),"|")
+        b = 100 - a       
+        print("{:<3}".format(b),"| ",point)
+    print("     "+"-"*10)
+    print(withdrawals)
+    print(sum)
 
 food = Category("food")
 clothing = Category("clothing")
 entertainment = Category("entertainment")
 food.deposit(300,"Deposit")
 food.transfer(100,clothing)
-food.print()
+#food.print()
+food.withdraw(50,"cake")
+clothing.withdraw(60,"shirt")
 
 create_spend_chart(food,clothing)
 """
