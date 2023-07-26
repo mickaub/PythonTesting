@@ -108,18 +108,38 @@ class Category:
             side2 = ((30 - l)/2)+0.5
         lside = "*" * int(side1) #multiplies string
         rside = "*" * int(side2)
+        print(lside+self.name+rside)  
         for x in self.ledger:
-            print(lside+self.name+rside)  
+            a = x.keys()
+            b = x.values()
+            plist = []
+            for y in b:
+                plist.append(y)
+            plist[1] = plist[1][0:22]            
+            plist[0] = '%.2f' % plist[0] # % says where to input % value
+            desstr = "{:<23}".format(plist[1])
+            amtstr = "{:>7}".format(plist[0])
+            print(desstr+amtstr)
+        balstr = '%.2f' % self.balance
+        totstr = "{:<20}".format("Total")+"{:>10}".format(balstr)
+        print(totstr)
+
+def create_spend_chart(*args):
+    for x in args:
+        print("Bal",x.balance)
+    for x in range(11):
+        a = x * 10
+        b = 100 - a
+        print("{:<3}".format(b),"|")
 
 food = Category("food")
 clothing = Category("clothing")
 entertainment = Category("entertainment")
 food.deposit(300,"Deposit")
-#food.withdraw(100)
-#print(food.get_balance())
-#clothing.deposit(10)
 food.transfer(100,clothing)
 food.print()
+
+create_spend_chart(food,clothing)
 """
 EXAMPLE:
 def setUp(self):

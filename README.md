@@ -29,3 +29,7 @@ Transfer COMPLETE
 Check Funds COMPLETE
 Print
 Seperate: Create Spend Chart
+
+26 Jul:
+Print                           COMPLETE
+Seperate: Create Spend Chart    WORKING
