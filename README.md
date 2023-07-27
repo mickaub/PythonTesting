@@ -34,3 +34,9 @@ Seperate: Create Spend Chart
 Print                           COMPLETE
 Seperate: Create Spend Chart    WORKING
 Trying to work on making each column either "o" or not.
+
+27 Jul:
+Seperate: Create Spend Chart    WORKING
+Created columns and working on names.
+Nameslength has been calculated and final string is ready.
+Need to work on turning final names into string list.

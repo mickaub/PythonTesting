@@ -131,38 +131,66 @@ class Category:
 def create_spend_chart(*args):
     withdrawals = []
     sum = []
+    sumstr = []
+    names = []
     for x in args:
         print("Bal",x.balance,x.transferred)
         c = x.transferred - x.balance
         withdrawals.append(c)
+        names.append(x.name)
     total = 0
     for x in withdrawals:
         total += x
     for x in withdrawals:
         d = (x/total)*10
         d = int(str(d)[:1])
-        d = 10 - d
-        sum.append(d)
-    for x in sum:
-        amtstr = []
-        if x>0:
-            pass #trying to create array list with o or not
-    for x in range(11):
-        point = "o  "
-        for y in sum:
-            if y>5:
-                point += "x  "  
-            y -= 1
-         #   if y>0:
-          #      y -= 1
-          #  else:
-          #      point += "o  "
+        sum.append(d)        
+        e = "o" * d
+        dif = 10 - d
+        f = " " * dif
+        both = f+e
+        sumstr.append(both)    
+    sumstrsep = []
+    for x in range(10):
+        h = ""
+        for y in sumstr:
+            g = y[x] + "  "
+            h += g
+        sumstrsep.append(h)
+    ex = "o  "
+    ex = ex * len(sum)
+    sumstrsep.append(ex)
+    
+    for x in range(11):        
+        point = sumstrsep[x]                   
         a = x * 10
-        b = 100 - a       
+        b = 100 - a   
         print("{:<3}".format(b),"| ",point)
     print("     "+"-"*10)
-    print(withdrawals)
-    print(sum)
+    #calculating category name length
+    namesl = []
+    for x in names:
+        namesl.append(len(x))
+    maxl = max(namesl)
+    namesstr = []
+    namesfull = []
+    for x in namesl:
+        k = maxl - x
+        k = k * " "           
+        namesstr.append(k)
+    for x in range(len(names)):
+        a = names[x]
+        b = namesstr[x]
+        c = a+b
+        namesfull.append(c)
+        # need to precalculate lines of category names with spaces
+    #print(withdrawals)
+    #print(sum)
+    #print(sumstr)
+    #print(sumstrsep)
+    print(maxl)
+    print(namesstr)
+    print(namesfull)
 
 food = Category("food")
 clothing = Category("clothing")
@@ -172,6 +200,7 @@ food.transfer(100,clothing)
 #food.print()
 food.withdraw(50,"cake")
 clothing.withdraw(60,"shirt")
+food.withdraw(50,"chips")
 
 create_spend_chart(food,clothing)
 """
