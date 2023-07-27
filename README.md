@@ -40,3 +40,5 @@ Seperate: Create Spend Chart    WORKING
 Created columns and working on names.
 Nameslength has been calculated and final string is ready.
 Need to work on turning final names into string list.
+
+Finished project 3

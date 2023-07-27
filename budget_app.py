@@ -134,7 +134,7 @@ def create_spend_chart(*args):
     sumstr = []
     names = []
     for x in args:
-        print("Bal",x.balance,x.transferred)
+       # print("Bal",x.balance,x.transferred)
         c = x.transferred - x.balance
         withdrawals.append(c)
         names.append(x.name)
@@ -183,14 +183,24 @@ def create_spend_chart(*args):
         b = namesstr[x]
         c = a+b
         namesfull.append(c)
-        # need to precalculate lines of category names with spaces
+    namesstrlist = []
+    for x in range(maxl):
+        stri = "      "
+        for y in namesfull:
+            a = y[x] + "   "
+            stri += a
+        namesstrlist.append(stri)
+    for x in range(maxl):
+        tex = namesstrlist[x]
+        print(tex)
     #print(withdrawals)
     #print(sum)
     #print(sumstr)
     #print(sumstrsep)
-    print(maxl)
-    print(namesstr)
-    print(namesfull)
+    #print(maxl)
+    #print(namesstr)
+    #print(namesfull)
+   # print(namesstrlist)
 
 food = Category("food")
 clothing = Category("clothing")
