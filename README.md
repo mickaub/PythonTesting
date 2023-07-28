@@ -42,3 +42,24 @@ Nameslength has been calculated and final string is ready.
 Need to work on turning final names into string list.
 
 Finished project 3
+
+28 Jul:
+Started working on polygon area project, 4/5 of FCC Python projects
+
+Rectangle Class
+init                COMPLETE
+set_width           COMPLETE
+set_height          COMPLETE
+get_area            COMPLETE
+get_perimeter       COMPLETE               
+get_diagonal        COMPLETE
+get_picture         WORKING
+get_amount_inside   
+str                 
+
+Square Class
+init
+set_width
+set_height
+set_side
+str
