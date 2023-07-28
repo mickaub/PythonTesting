@@ -53,13 +53,15 @@ set_height          COMPLETE
 get_area            COMPLETE
 get_perimeter       COMPLETE               
 get_diagonal        COMPLETE
-get_picture         WORKING
-get_amount_inside   
-str                 
+get_picture         COMPLETE
+get_amount_inside   COMPLETE       
+str                 COMPLETE
 
 Square Class
-init
-set_width
-set_height
-set_side
-str
+init                COMPLETE
+set_width           COMPLETE
+set_height          COMPLETE
+set_side            COMPLETE
+str                 COMPLETE
+
+Finished project 4
