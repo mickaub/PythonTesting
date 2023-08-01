@@ -70,6 +70,12 @@ Finished project 4
 Project 5: Probability Calculator
 Hat class:
 init: COMPLETE   
-draw: WORKING
+draw: COMPLETE
 
-Experiment function: WAITING
+Experiment function: WORKING
+-validates success of finding expected results
+
+TO DO:
+Change original list to randomised list, based on balls_drawn amount
+Add success amount to success counter variable
+Create probability by diving success variable by experiments
