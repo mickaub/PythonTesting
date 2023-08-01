@@ -65,3 +65,11 @@ set_side            COMPLETE
 str                 COMPLETE
 
 Finished project 4
+
+1 Aug:
+Project 5: Probability Calculator
+Hat class:
+init: COMPLETE   
+draw: WORKING
+
+Experiment function: WAITING
