@@ -79,3 +79,13 @@ TO DO:
 Change original list to randomised list, based on balls_drawn amount
 Add success amount to success counter variable
 Create probability by diving success variable by experiments
+
+2 Aug:
+Experiment function: WORKING
+
+Changed original list to randomised list, based on balls_drawn amount
+Added success amount to success counter variable
+Created probability by diving success variable by experiments
+
+Project 5 Complete
+Scientific Computing with Python Complete
